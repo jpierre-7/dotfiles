@@ -1,0 +1,178 @@
+add_newline = true
+
+format = """\
+[󱞬 ](lavender)[](teal)$os$username$sudo\
+[▓▒░](fg:teal bg:sapphire)$directory\
+[▓▒░](fg:sapphire bg:blue)$nix_shell$cmd_duration$status\
+[ ](blue)[  ](yellow)$fill[   ](yellow)\
+[ ](flamingo)$git_branch$git_status\
+[▓▒░](fg:flamingo bg:yellow)$c$deno$goland$java$lua$nim$nodejs$ruby$rust$php$python\
+[▓▒░](fg:yellow bg:maroon)$package\
+[▓▒░](fg:maroon bg:mauve)$time\
+[](mauve)
+[󱞪 ](lavender)$character\
+"""
+
+palette = "catppuccin_frappe"
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
+
+[os]
+style = "fg:crust bg:teal"
+disabled = false
+symbols = { Arch = " ", NixOS = "󱄅 " }
+
+[username]
+disabled = false
+show_always = true
+style_user = "fg:crust bg:teal"
+style_root = "fg:crust bg:teal"
+format = "[$user]($style)"
+
+[sudo]
+disabled = false
+symbol = " "
+style = "fg:crust bg:teal"
+format = "[$symbol]($style)"
+
+[directory]
+style = "fg:crust bg:sapphire bold"
+format = "[$path]($style)"
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"~" = " "
+
+[nix_shell]
+format = "[ 󱄅 $name]($style)"
+style = "fg:crust bg:blue bold"
+
+[cmd_duration]
+format = "[  $duration]($style)"
+style = "fg:crust bg:blue bold"
+
+[status]
+disabled = false
+symbol = "[  ](fg:red bg:blue)"
+success_symbol = "[ 󰗡 ](fg:green bg:blue)"
+success_style = "fg:green bg:blue"
+failure_style = "fg:red bg:blue"
+format = "$symbol([$status]($style))"
+
+[git_branch]
+symbol = ""
+style = "fg:crust bg:flamingo italic"
+format = "[$symbol $branch]($style)"
+
+[git_status]
+style = "fg:crust bg:flamingo italic"
+format = "[$all_status$ahead_behind]($style)"
+
+[c]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[deno]
+symbol = "🦖"
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[golang]
+symbol = " "
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[java]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[php]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[python]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[lua]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[nim]
+symbol = "󰆥"
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[nodejs]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[ruby]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[rust]
+symbol = ""
+style = "fg:crust bg:yellow"
+format = "[$symbol $version]($style)"
+
+[package]
+symbol = "󰏗 "
+format = "[$symbol$version]($style)"
+style = "fg:crust bg:maroon"
+
+[fill]
+symbol = "  "
+style = "yellow"
+
+[time]
+disabled = false
+time_format = "%I:%M%p"
+style = "fg:crust bg:mauve bold"
+format = "[ $time]($style)"
+
+[character]
+success_symbol = "[](teal) [I](bold fg:base bg:green)"
+error_symbol = "[](teal) [I](bold fg:base bg:green)"
+vimcmd_symbol = "[](teal) [N](bold fg:base bg:blue)"
+vimcmd_visual_symbol = "[](teal) [V](bold fg:base bg:mauve)"
+vimcmd_replace_one_symbol = "[](teal) [R](bold fg:base bg:red)"
