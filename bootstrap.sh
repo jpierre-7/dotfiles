@@ -1,9 +1,12 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
-PACMAN_PACKAGES=(fastfetch fish lsd niri stow)
-AUR_PACKAGES=(noctalia-shell vicinae)
+PACMAN_PACKAGES=(discord starship neovim onefetch stow wezterm fish lsd fastfetch)
+AUR_PACKAGES=(noctalia-shell vicinae onlyoffice maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted)
+
+#Quick update
+sudo pacman -Syu
 
 # Install yay if not present
 if ! command -v yay &>/dev/null; then
@@ -14,16 +17,21 @@ if ! command -v yay &>/dev/null; then
   cd - && rm -rf /tmp/yay
 fi
 
+# Install all packages
 sudo pacman -S --needed "${PACMAN_PACKAGES[@]}"
 yay -S --needed "${AUR_PACKAGES[@]}"
 
+# Confirm dotfiles dir exists before stowing
+if [ ! -d "$DOTFILES" ]; then
+  echo "Dotfiles not found at $DOTFILES, skipping stow"
+  exit 1
+fi
+
 # Stow all packages
 cd "$DOTFILES"
-for pkg in fastfetch fish lsd niri noctalia vicinae wezterm; do
-  if [ -d "$HOME/.config/$pkg" ] && [ ! -L "$HOME/.config/$pkg" ]; then
-    echo "Backing up existing ~/.config/$pkg"
-    mv "$HOME/.config/$pkg" "$HOME/.config/$pkg.bak"
-  fi
-  stow "$pkg"
-  echo "✓ Stowed $pkg"
-done
+stow */
+echo "All packages stowed successfully!"
+
+# End with a reboot prompt
+read -rp "Done! Reboot now? [y/N] " ans
+[[ "$ans" == "y" ]] && reboot
