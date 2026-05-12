@@ -654,7 +654,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/john/Pictures/wallpapers",
+        "directory": "/home/john/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
