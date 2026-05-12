@@ -6,7 +6,6 @@ end
 
 # Interactive shell - Shell behavior and user interface
 if status is-interactive
-    fish_config theme choose catppuccin
 
     # Aliases
     alias ls="lsd"
