@@ -69,27 +69,13 @@ Follow the prompts. Recommended options: ext4 or btrfs filesystem, pipewire for 
 
 \* Be sure to select git and your browser of choice from additional packages during install.
 
-### 2. Install a Browser
-
-Once booted into your new system, install a browser so you can reference docs if needed. For example, with Firefox:
-
-```bash
-sudo pacman -S firefox
-```
-
-Or for a Chromium-based option:
-
-```bash
-sudo pacman -S chromium
-```
-
-### 3. Clone This Repo
+### 2. Clone This Repo
 
 ```bash
 git clone https://github.com/jpierre-7/dotfiles.git ~/dotfiles
 ```
 
-### 4. Run the Bootstrap Script
+### 3. Run the Bootstrap Script
 
 ```bash
 cd ~/dotfiles
