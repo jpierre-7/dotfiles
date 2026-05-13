@@ -2,8 +2,8 @@
 set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
-PACMAN_PACKAGES=(discord starship neovim onefetch stow wezterm fish lsd fastfetch)
-AUR_PACKAGES=(noctalia-shell vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted)
+PACMAN_PACKAGES=(starship neovim onefetch stow wezterm fish lsd fastfetch)
+AUR_PACKAGES=(noctalia-shell vesktop vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted)
 
 #Quick update
 sudo pacman -Syu
