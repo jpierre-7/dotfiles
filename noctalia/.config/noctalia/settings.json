@@ -102,6 +102,9 @@
                     "id": "Clock",
                     "tooltipFormat": "",
                     "useCustomFont": false
+                },
+                {
+                    "id": "plugin:todo"
                 }
             ],
             "left": [
@@ -138,17 +141,6 @@
                 }
             ],
             "right": [
-                {
-                    "blacklist": [
-                    ],
-                    "chevronColor": "secondary",
-                    "colorizeIcons": false,
-                    "drawerEnabled": true,
-                    "hidePassive": false,
-                    "id": "Tray",
-                    "pinned": [
-                    ]
-                },
                 {
                     "hideWhenZero": false,
                     "hideWhenZeroUnread": false,
