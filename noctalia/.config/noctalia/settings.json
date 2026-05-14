@@ -85,14 +85,14 @@
                     "id": "MediaMini",
                     "maxWidth": 145,
                     "panelShowAlbumArt": true,
-                    "scrollingMode": "hover",
+                    "scrollingMode": "always",
                     "showAlbumArt": true,
-                    "showArtistFirst": true,
+                    "showArtistFirst": false,
                     "showProgressRing": true,
-                    "showVisualizer": false,
-                    "textColor": "none",
+                    "showVisualizer": true,
+                    "textColor": "secondary",
                     "useFixedWidth": false,
-                    "visualizerType": "linear"
+                    "visualizerType": "wave"
                 },
                 {
                     "clockColor": "secondary",
