@@ -1,0 +1,24 @@
+{
+  "todos": [],
+  "pages": [
+    {
+      "id": 0,
+      "name": "The Next Thing..."
+    }
+  ],
+  "current_page_id": 0,
+  "count": 0,
+  "completedCount": 0,
+  "showCompleted": true,
+  "showBackground": true,
+  "isExpanded": false,
+  "useCustomColors": false,
+  "priorityColors": {
+    "high": "#fb4934",
+    "medium": "#b8bb26",
+    "low": "#ebdbb2"
+  },
+  "exportPath": "~/Documents",
+  "exportFormat": "markdown",
+  "exportEmptySections": false
+}
