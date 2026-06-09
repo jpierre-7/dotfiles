@@ -3,7 +3,7 @@ set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
 PACMAN_PACKAGES=(starship noto-fonts-emoji neovim onefetch stow wezterm fish lsd fastfetch keyd)
-AUR_PACKAGES=(noctalia-shell vesktop vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted)
+AUR_PACKAGES=(noctalia-shell vesktop zen-browser-bin vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted)
 
 #Quick update
 sudo pacman -Syu
