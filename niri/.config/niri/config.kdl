@@ -93,7 +93,7 @@ output "DP-2" {
 output "HDMI-A-1" {
     mode "1920x1080@60.000"
     transform "270"
-    position x=3840 y=0
+    position x=3840 y=-420
 }
 
 layout {
