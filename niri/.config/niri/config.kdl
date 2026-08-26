@@ -1,4 +1,4 @@
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
 
 spawn-at-startup "vicinae" "server"
 
@@ -153,7 +153,7 @@ layout {
     }
 }
 layer-rule {
-    match namespace="^quickshell$"
+    match namespace="^noctalia-backdrop"
     place-within-backdrop true
 }
 overview {
