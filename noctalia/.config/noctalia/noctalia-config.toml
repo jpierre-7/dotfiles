@@ -151,3 +151,10 @@ path = "/home/john/Pictures/Wallpapers/armored_girl.png"
 
 [wallpaper.monitors.HDMI-A-1]
 path = "/home/john/Pictures/Wallpapers/armored_girl.png"
+
+[widget.clock]
+format = "{:%I:%M %p}"
+
+[widget.media]
+max_length = 100
+title_scroll = "always"
