@@ -6,10 +6,10 @@ config.keys = require("keys")
 
 config.default_prog = { "fish", "-l" }
 
-config.color_scheme = "Catppuccin Frappe"
+config.color_scheme = "Gruvbox Dark (Gogh)"
 config.window_background_opacity = 0.95
 local color_scheme = wezterm.color.get_builtin_schemes()[config.color_scheme]
-local accent = "#babbf1" -- lavender
+local accent = "#fe8019" -- Gruvbox orange
 
 config.font = wezterm.font("Maple Mono")
 config.font_size = 14
@@ -30,9 +30,9 @@ local function tab_title(tab_info)
 	if not title:find(" ") then
 		title = " " .. title
 	elseif title:find(".+@.+:%s.+") then
-		title = "󰣀 " .. title
+		title = "󢳀 " .. title
 	elseif title:find("^sudo ") then
-		title = "󰦝 " .. title
+		title = "󢖝 " .. title
 	elseif title:find("^ Gemini") then
 		title = title:gsub("^ Gemini", " ")
 	elseif title:find("^nv ") or title:find("^nvim ") then
