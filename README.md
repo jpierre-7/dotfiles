@@ -113,6 +113,15 @@ Each directory is a Stow package. Running `stow */` from the repo root symlinks 
 - WezTerm uses the Catppuccin Frappé color scheme with a custom `dank-theme` available as an alternative.
 - Fish runs `onefetch` automatically when entering a git repo, and `fastfetch` on shell start.
 
+## ⚠️ Noctalia v5 Configuration Architecture
+
+With the update to Noctalia v5, this configuration now utilizes a dual-layered architecture, splitting the setup into a static foundation and a dynamic local state:
+
+*   **The Declarative Foundation (`~dotfiles/noctalia/.config/noctalia/`):** 
+    This repository strictly manages the base, non-negotiable foundations of the desktop shell. This includes core keybinds, window rules, and custom terminal integrations (like the Gruvbox Starship prompt). These `.toml` files are version-controlled and symlinked globally via GNU Stow.
+*   **The Local State Overrides (`~/.local/state/noctalia/settings.toml`):** 
+    Any minor layout tweaks, scaling adjustments, or visual changes made via the Noctalia GUI are saved to this state file. This file acts as an ephemeral, device-specific cache and is intentionally excluded from version control to prevent display conflicts across different hardware setups.
+    
 ## AI Disclosure
 
-AI was used as a learning tool not a replacement for critical thinking. Even during troubleshooting each line and choice was reviewed, understood, and questioned before implementation. AI was used to generate a boilerplate for this README (ofc I was sure to review though ;) )
+AI was used as a learning tool not a replacement for critical thinking. Even during troubleshooting each line and choice was reviewed, understood, and questioned before implementation. Although AI was used to generate a boilerplate for this README, I reviewed every line :)
