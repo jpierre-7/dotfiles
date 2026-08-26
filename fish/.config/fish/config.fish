@@ -13,6 +13,7 @@ if status is-interactive
     alias la='lsd -a'
     alias lla='lsd -la'
     alias lt='lsd --tree'
+    alias -s clear="pyroclear"
 
     # Abbreviations
     abbr -a l lsd
