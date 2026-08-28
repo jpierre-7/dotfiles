@@ -2,7 +2,7 @@
 set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
-PACMAN_PACKAGES=(starship noctalia zed wlsunset vivaldi noto-fonts-emoji neovim onefetch stow wezterm fish lsd fastfetch keyd)
+PACMAN_PACKAGES=(tailscale starship noctalia zed wlsunset vivaldi noto-fonts-emoji neovim onefetch stow wezterm fish lsd fastfetch keyd)
 AUR_PACKAGES=(vesktop vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted)
 
 #Quick update
