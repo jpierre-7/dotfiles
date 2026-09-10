@@ -4,6 +4,8 @@ if status is-login
     starship init fish | source
 end
 
+fish_add_path -g ~/.local/bin
+
 # Interactive shell - Shell behavior and user interface
 if status is-interactive
 
