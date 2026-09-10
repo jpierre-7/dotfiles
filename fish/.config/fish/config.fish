@@ -5,6 +5,7 @@ if status is-login
 end
 
 fish_add_path -g ~/.local/bin
+fish_add_path -g ~/.cargo/bin
 
 # Interactive shell - Shell behavior and user interface
 if status is-interactive

@@ -85,9 +85,15 @@ bash bootstrap.sh
 The script will:
 - Update the system (`pacman -Syu`)
 - Install [yay](https://github.com/Jguer/yay) (AUR helper) if not already present
-- Install all packages from both the official repos and the AUR
+- Install all packages from the official repos, the AUR, and cargo
 - Stow all config directories into your home folder
-- Prompt you to reboot
+- Write `/etc/keyd/default.conf` to remap Caps Lock to Escape
+- Enable the `keyd` and `tailscaled` services
+- Set fish as your login shell
+- Print any remaining manual steps, then prompt you to reboot
+
+The script is safe to re-run: packages are installed with `--needed` and configs
+are re-stowed in place.
 
 ## Structure
 
@@ -107,7 +113,8 @@ Each directory is a Stow package. Running `stow */` from the repo root symlinks 
 
 ## Notes
 
-- Caps Lock is remapped to Escape via `xkb` in the Niri config.
+- Caps Lock is remapped to Escape at the kernel level with [keyd](https://github.com/rvaiya/keyd),
+  configured by `bootstrap.sh`. The equivalent `xkb` option is left commented out in the Niri config.
 - The Starship prompt uses the Catppuccin Frappé palette.
 - The Noctalia color scheme is set to Gruvbox.
 - WezTerm uses the Catppuccin Frappé color scheme with a custom `dank-theme` available as an alternative.
@@ -121,6 +128,8 @@ With the update to Noctalia v5, this configuration now utilizes a dual-layered a
     This repository strictly manages the base, non-negotiable foundations of the desktop shell. This includes core keybinds, window rules, and custom terminal integrations (like the Gruvbox Starship prompt). These `.toml` files are version-controlled and symlinked globally via GNU Stow.
 *   **The Local State Overrides (`~/.local/state/noctalia/settings.toml`):** 
     Any minor layout tweaks, scaling adjustments, or visual changes made via the Noctalia GUI are saved to this state file. This file acts as an ephemeral, device-specific cache and is intentionally excluded from version control to prevent display conflicts across different hardware setups.
+
+The same reasoning applies to `fish/.config/fish/fish_variables`: fish rewrites it at runtime and it stores absolute, machine-specific paths, so it is listed in `.gitignore`. Anything that belongs on every device (such as `$PATH` entries) goes in `config.fish` instead.
     
 ## AI Disclosure
 
