@@ -16,7 +16,7 @@ if status is-interactive
     alias la='lsd -a'
     alias lla='lsd -la'
     alias lt='lsd --tree'
-    alias -s clear="pyroclear"
+    alias clear="pyroclear"
 
     # Abbreviations
     abbr -a l lsd
@@ -26,9 +26,6 @@ if status is-interactive
     abbr -a lg lazygit
     abbr -a qcd --position command --regex "q+" --function qcd
     abbr -a vg "ssh veggie.ooapi.com"
-    abbr -a q 'cd ..'
-    abbr -a qq 'cd ../..'
-    abbr -a qqq 'cd ../../..'
 
     set -g fish_key_bindings fish_vi_key_bindings
 
