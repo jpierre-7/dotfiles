@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "comment": "Skill content is vendored into this repo so it stows onto every device without a network fetch. To refresh a skill, re-copy skillPath from source at a newer commit and update the pinned commit here.",
+  "skills": {
+    "design-taste-frontend": {
+      "source": "https://github.com/Leonxlnx/taste-skill.git",
+      "skillPath": "skills/taste-skill",
+      "commit": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37"
+    },
+    "find-skills": {
+      "source": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills",
+      "commit": "80feb48868972d518436f26711509bc78595b5cb"
+    },
+    "minimalist-ui": {
+      "source": "https://github.com/Leonxlnx/taste-skill.git",
+      "skillPath": "skills/minimalist-skill",
+      "commit": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37"
+    },
+    "redesign-existing-projects": {
+      "source": "https://github.com/Leonxlnx/taste-skill.git",
+      "skillPath": "skills/redesign-skill",
+      "commit": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37"
+    }
+  }
+}

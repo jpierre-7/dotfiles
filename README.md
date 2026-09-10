@@ -99,6 +99,7 @@ are re-stowed in place.
 
 ```
 dotfiles/
+├── claude/        # Claude Code agent skills
 ├── fastfetch/     # fastfetch config
 ├── fish/          # Fish shell config & abbreviations
 ├── lsd/           # lsd colors & icons
@@ -119,6 +120,14 @@ Each directory is a Stow package. Running `stow */` from the repo root symlinks 
 - The Noctalia color scheme is set to Gruvbox.
 - WezTerm uses the Catppuccin Frappé color scheme with a custom `dank-theme` available as an alternative.
 - Fish runs `onefetch` automatically when entering a git repo, and `fastfetch` on shell start.
+- Claude Code skills in `claude/.claude/skills/` are vendored: each skill's `SKILL.md`
+  is committed here rather than symlinked into a skill manager's store. Skill
+  installers write *relative* symlinks (`../../.agents/skills/...`) that assume
+  `~/.claude/skills` is a real directory; because Stow makes it a symlink into this
+  repo, those links resolve against the repo instead of `$HOME` and dangle. Vendoring
+  also means a freshly cloned device gets the skills with no extra install step.
+  `skills-lock.json` records each skill's upstream repo, path, and pinned commit so a
+  skill can be refreshed by re-copying from source.
 
 ## ⚠️ Noctalia v5 Configuration Architecture
 
