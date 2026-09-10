@@ -33,7 +33,7 @@ stow */
 echo "All packages stowed successfully!"
 
 # Bind esc to caps lock
-sudo cat <<EOF >/etc/keyd/default.conf
+sudo tee /etc/keyd/default.conf >/dev/null <<EOF
 [ids]
 *
 
