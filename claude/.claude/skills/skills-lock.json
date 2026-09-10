@@ -21,6 +21,13 @@
       "source": "https://github.com/Leonxlnx/taste-skill.git",
       "skillPath": "skills/redesign-skill",
       "commit": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37"
-    }
+    },
+    "caveman": { "source": "local", "note": "caveman family + cavecrew; no upstream repo, refresh by re-copying from ~/.agents/skills" },
+    "caveman-commit": { "source": "local", "note": "see caveman" },
+    "caveman-compress": { "source": "local", "note": "see caveman" },
+    "caveman-help": { "source": "local", "note": "see caveman" },
+    "caveman-review": { "source": "local", "note": "see caveman" },
+    "caveman-stats": { "source": "local", "note": "see caveman" },
+    "cavecrew": { "source": "local", "note": "see caveman" }
   }
 }
