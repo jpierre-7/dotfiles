@@ -1,0 +1,9 @@
+{
+  "model": "opus",
+  "theme": "dark",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "enabledPlugins": {
+    "mattpocock-skills@claude-plugins-official": true
+  }
+}
