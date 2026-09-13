@@ -9,7 +9,8 @@
     "lazyvim.plugins.extras.lang.rust",
     "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.tailwind",
-    "lazyvim.plugins.extras.lang.toml"
+    "lazyvim.plugins.extras.lang.toml",
+    "lazyvim.plugins.extras.ui.smear-cursor"
   ],
   "install_version": 8,
   "news": {

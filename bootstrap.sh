@@ -12,7 +12,7 @@ PACMAN_PACKAGES=(
   # Neovim and the tooling LazyVim's extras expect
   neovim ripgrep fd unzip wl-clipboard nodejs npm rustup
   # System
-  git base-devel stow keyd tailscale
+  git base-devel stow keyd tailscale github-cli
   # Apps and fonts
   vivaldi noto-fonts noto-fonts-emoji
 )
@@ -101,6 +101,6 @@ EOF
 # End with a reboot prompt
 read -rp "Reboot now? [y/N] " ans
 case "$ans" in
-  [yY] | [yY][eE][sS]) reboot ;;
-  *) echo "Skipping reboot." ;;
+[yY] | [yY][eE][sS]) reboot ;;
+*) echo "Skipping reboot." ;;
 esac
