@@ -11,6 +11,8 @@ PACMAN_PACKAGES=(
   wezterm fish starship lsd fastfetch onefetch lazygit
   # Neovim and the tooling LazyVim's extras expect
   neovim ripgrep fd unzip wl-clipboard nodejs npm rustup
+  # Molten (jupyter in neovim): python for the plugin venv, imagemagick for image.nvim
+  python imagemagick
   # System
   git base-devel stow keyd tailscale github-cli
   # Apps and fonts
@@ -21,6 +23,13 @@ AUR_PACKAGES=(vesktop vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-
 
 # Installed with cargo because they are not packaged in the repos or the AUR
 CARGO_PACKAGES=(pyroclear)
+
+# Python deps for neovim remote plugins (molten-nvim), kept in their own venv
+# that nvim points at via vim.g.python3_host_prog. pynvim and jupyter_client
+# are required; ipykernel provides a default python3 kernel; the rest add
+# optional output support (notebook import/export, image popups, svg, clipboard).
+NVIM_VENV="$HOME/.virtualenvs/neovim"
+NVIM_PIP_PACKAGES=(pynvim jupyter_client ipykernel nbformat pillow cairosvg pyperclip)
 
 log() { printf '\n\033[1;34m==>\033[0m %s\n' "$1"; }
 
@@ -52,6 +61,15 @@ rustup component add rust-analyzer
 for pkg in "${CARGO_PACKAGES[@]}"; do
   cargo install --locked "$pkg"
 done
+
+log "Setting up the neovim python venv at $NVIM_VENV"
+if [ ! -x "$NVIM_VENV/bin/python3" ]; then
+  mkdir -p "$(dirname "$NVIM_VENV")"
+  python -m venv "$NVIM_VENV"
+fi
+"$NVIM_VENV/bin/pip" install --upgrade "${NVIM_PIP_PACKAGES[@]}"
+# Molten writes kernel connection files here but does not create the directory
+mkdir -p "$HOME/.local/share/jupyter/runtime"
 
 log "Stowing configs into $HOME"
 cd "$DOTFILES"
@@ -94,7 +112,8 @@ Bootstrap complete. Remaining manual steps:
 
   1. Authenticate Tailscale:  sudo tailscale up
   2. Log out and back in for the fish login shell to take effect
-  3. Launch nvim once to let lazy.nvim sync plugins
+  3. Launch nvim once to let lazy.nvim sync plugins, then run
+     :UpdateRemotePlugins and restart nvim so Molten is registered
 
 EOF
 

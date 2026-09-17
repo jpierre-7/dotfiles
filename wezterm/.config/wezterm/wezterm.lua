@@ -6,6 +6,9 @@ config.keys = require("keys")
 
 config.default_prog = { "fish", "-l" }
 
+-- Let image.nvim (used by Molten in nvim) draw images inline
+config.enable_kitty_graphics = true
+
 config.color_scheme = "Gruvbox Dark (Gogh)"
 config.window_background_opacity = 0.95
 local color_scheme = wezterm.color.get_builtin_schemes()[config.color_scheme]

@@ -11,6 +11,7 @@ My personal Arch Linux dotfiles, managed with [GNU Stow](https://www.gnu.org/sof
 | [WezTerm](https://wezfurlong.org/wezterm/) | Terminal emulator |
 | [Fish](https://fishshell.com/) | Shell |
 | [Neovim](https://neovim.io/) | Editor |
+| [Molten](https://github.com/benlubas/molten-nvim) | Jupyter kernels inside Neovim |
 | [Starship](https://starship.rs/) | Prompt |
 | [lsd](https://github.com/lsd-rs/lsd) | `ls` replacement |
 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info |
