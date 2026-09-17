@@ -12,6 +12,7 @@ My personal Arch Linux dotfiles, managed with [GNU Stow](https://www.gnu.org/sof
 | [Fish](https://fishshell.com/) | Shell |
 | [Neovim](https://neovim.io/) | Editor |
 | [Molten](https://github.com/benlubas/molten-nvim) | Jupyter kernels inside Neovim |
+| [Quarto](https://quarto.org/) | Notebooks (`.qmd`) rendered to PDF with outputs |
 | [Starship](https://starship.rs/) | Prompt |
 | [lsd](https://github.com/lsd-rs/lsd) | `ls` replacement |
 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info |
@@ -144,3 +145,49 @@ The same reasoning applies to `fish/.config/fish/fish_variables`: fish rewrites 
 ## AI Disclosure
 
 AI was used as a learning tool not a replacement for critical thinking. Even during troubleshooting each line and choice was reviewed, understood, and questioned before implementation. Although AI was used to generate a boilerplate for this README, I reviewed every line :)
+
+## Notebooks
+
+Notebooks are Quarto markdown (`.qmd`) files. Molten runs cells interactively in
+Neovim, and `quarto render` re-executes the whole file and produces a PDF with
+outputs (using the typst engine bundled with quarto, so no LaTeX install).
+
+Copy `nvim/.config/nvim/templates/notebook.qmd` to start a new one.
+
+### One-time setup per project
+
+Each project gets its own venv and a Jupyter kernel that points at it. Anything
+installed in the venv (matplotlib, pandas, ...) is then visible to the kernel.
+
+```bash
+cd ~/Projects/my-project
+python -m venv venv
+source venv/bin/activate.fish
+pip install ipykernel jupyter-core nbclient nbformat pyyaml   # kernel + what quarto needs to execute
+python -m ipykernel install --user --name my-project --display-name "Python (my-project)"
+```
+
+Name the kernel after the project directory: `<localleader>ip` in Neovim reads
+`$VIRTUAL_ENV` and starts the matching kernel (falling back to `python3`).
+
+### Working in Neovim
+
+Open the `.qmd` with the venv active. `<localleader>` is `\`.
+
+| Keys | Action |
+|------|--------|
+| `\ip` | Start the project's kernel |
+| `\rc` / `\ra` / `\rb` / `\rA` | Run cell / cell and above / cell and below / all cells |
+| `\rl` / visual `\r` | Run line / selection |
+| `\os` / `\oh` | Enter / hide the output window |
+| `\qp` | Live HTML preview in the browser |
+
+### Rendering to PDF
+
+```bash
+quarto render notebook.qmd    # -> notebook.pdf next to it
+```
+
+Quarto picks the venv automatically when it is activated or sits in the project
+directory as `venv`/`.venv`, and the `jupyter:` key in the file's header selects
+the kernel.

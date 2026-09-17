@@ -19,7 +19,8 @@ PACMAN_PACKAGES=(
   vivaldi noto-fonts noto-fonts-emoji
 )
 
-AUR_PACKAGES=(vesktop vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted)
+# quarto-cli-bin renders .qmd notebooks to PDF via its bundled typst
+AUR_PACKAGES=(vesktop vicinae-bin maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted quarto-cli-bin)
 
 # Installed with cargo because they are not packaged in the repos or the AUR
 CARGO_PACKAGES=(pyroclear)

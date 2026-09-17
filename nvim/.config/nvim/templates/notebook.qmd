@@ -1,0 +1,43 @@
+---
+title: "Assignment Title"
+author: "John Pierre"
+date: today
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      x: 1in
+      y: 1in
+    toc: false
+    number-sections: true
+# Name of the kernel registered for this project's venv:
+#   python -m ipykernel install --user --name <project>
+jupyter: python3
+execute:
+  echo: true      # show code alongside output
+  warning: false
+---
+
+## Problem 1
+
+Prose goes here. Inline math works: $\int_0^1 x^2 \, dx = \frac{1}{3}$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2 * np.pi, 200)
+plt.plot(x, np.sin(x))
+plt.title("sin(x)")
+plt.show()
+```
+
+The plot above shows one period of $\sin(x)$.
+
+## Problem 2
+
+```{python}
+#| echo: false
+# `#| echo: false` hides this cell's code in the PDF but keeps its output
+print("only the output of this cell appears in the PDF")
+```
