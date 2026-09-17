@@ -1,9 +1,15 @@
 {
   "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"/home/john/.claude/statusline.sh\"",
+    "hideVimModeIndicator": true
+  },
   "enabledPlugins": {
     "mattpocock-skills@claude-plugins-official": true
   },
   "theme": "dark",
+  "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true
 }
