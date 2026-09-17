@@ -141,10 +141,6 @@ With the update to Noctalia v5, this configuration now utilizes a dual-layered a
     Any minor layout tweaks, scaling adjustments, or visual changes made via the Noctalia GUI are saved to this state file. This file acts as an ephemeral, device-specific cache and is intentionally excluded from version control to prevent display conflicts across different hardware setups.
 
 The same reasoning applies to `fish/.config/fish/fish_variables`: fish rewrites it at runtime and it stores absolute, machine-specific paths, so it is listed in `.gitignore`. Anything that belongs on every device (such as `$PATH` entries) goes in `config.fish` instead.
-    
-## AI Disclosure
-
-AI was used as a learning tool not a replacement for critical thinking. Even during troubleshooting each line and choice was reviewed, understood, and questioned before implementation. Although AI was used to generate a boilerplate for this README, I reviewed every line :)
 
 ## Notebooks
 
