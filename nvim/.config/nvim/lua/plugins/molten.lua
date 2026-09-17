@@ -24,14 +24,21 @@ return {
     end,
     keys = {
       { "<localleader>mi", ":MoltenInit<CR>", desc = "Molten init kernel", silent = true },
-      -- Start the kernel matching the active venv, falling back to python3
+      -- Start the kernel registered for the active venv, falling back to python3.
+      -- Register one per project with:
+      --   pip install ipykernel && python -m ipykernel install --user --name <project>
+      -- The kernel is named after the venv dir, or the project dir when the
+      -- venv has a generic name like venv/.venv.
       {
         "<localleader>ip",
         function()
           local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
           if venv ~= nil then
-            venv = string.match(venv, "/.+/(.+)")
-            vim.cmd(("MoltenInit %s"):format(venv))
+            local parent, name = venv:match("^(.*)/([^/]+)/?$")
+            if name == "venv" or name == ".venv" or name == "env" or name == ".env" then
+              name = vim.fn.fnamemodify(parent, ":t")
+            end
+            vim.cmd(("MoltenInit %s"):format(name))
           else
             vim.cmd("MoltenInit python3")
           end
