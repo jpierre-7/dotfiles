@@ -1,0 +1,24 @@
+2026-09-17T16:53:01.651295Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=9216
+2026-09-17T16:53:01.651340Z  INFO herdr::client: connecting to server path=/home/john/.config/herdr/herdr-client.sock
+2026-09-17T16:53:01.890408Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.1
+2026-09-17T18:21:45.637144Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=21149
+2026-09-17T18:21:45.637175Z  INFO herdr::client: connecting to server path=/home/john/.config/herdr/herdr-client.sock
+2026-09-17T18:21:45.696822Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.1
+2026-09-17T18:33:32.256967Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=32907
+2026-09-17T18:33:32.256998Z  INFO herdr::client: connecting to server path=/home/john/.config/herdr/herdr-client.sock
+2026-09-17T18:33:32.444727Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.1
+2026-09-17T18:45:55.293778Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=9216
+2026-09-17T18:46:02.570483Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=32907
+2026-09-17T18:46:02.572659Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=21149
+2026-09-17T21:06:35.029458Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=3681
+2026-09-17T21:06:35.029644Z  INFO herdr::client: connecting to server path=/home/john/.config/herdr/herdr-client.sock
+2026-09-17T21:06:35.274577Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.1
+2026-09-17T21:31:23.259895Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=3681
+2026-09-18T02:18:14.647941Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=13283
+2026-09-18T02:18:14.647966Z  INFO herdr::client: connecting to server path=/home/john/.config/herdr/herdr-client.sock
+2026-09-18T02:18:14.667950Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.1
+2026-09-18T02:34:17.542662Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-09-18T02:34:17.542738Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-09-18T02:34:29.249993Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-09-18T02:34:29.250088Z  WARN herdr::raw_input: flushing lone escape after input timeout; if this follows an alt chord or focus switch it may reach the pane as plain esc bytes=[27]
+2026-09-18T02:34:33.519047Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=13283
