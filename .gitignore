@@ -2,3 +2,9 @@
 # absolute, machine-specific paths, so it is kept out of version control for
 # the same reason as the Noctalia local state file (see README).
 fish/.config/fish/fish_variables
+
+# herdr runtime state (not config)
+herdr/.config/herdr/*.log
+herdr/.config/herdr/*.sock
+herdr/.config/herdr/session.json
+herdr/.config/herdr/.plugins.lock
