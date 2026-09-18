@@ -134,3 +134,5 @@
 2026-09-18T02:18:14.667927Z  INFO herdr::server::headless: client connected client_id=4 cols=143 rows=37 cell_width_px=22 cell_height_px=50 surface_active=true render_encoding=SemanticFrame
 2026-09-18T02:34:33.518385Z  INFO herdr::server::headless: client detached client_id=4
 2026-09-18T02:36:35.012582Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-09-18T02:45:08.834977Z  INFO herdr::server::headless: client connected client_id=6 cols=143 rows=37 cell_width_px=22 cell_height_px=50 surface_active=true render_encoding=SemanticFrame
+2026-09-18T02:46:18.111603Z  INFO herdr::server::headless: client detached client_id=6
