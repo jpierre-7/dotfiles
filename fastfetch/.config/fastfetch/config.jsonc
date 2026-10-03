@@ -2,7 +2,7 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
     "type": "auto",
-    "source": "",
+    "source": "...",
     "color": {
       "1": "",
       "2": "",
@@ -23,7 +23,7 @@
     },
     "printRemaining": true,
     "preserveAspectRatio": false,
-    "recache": false,
+    "cache": "regen",
     "position": "left",
     "chafa": {
       "fgOnly": false,
@@ -188,7 +188,7 @@
       "type": "theme",
       "keyIcon": "󰉼"
     },
-   {
+    {
       "type": "terminal",
       "keyIcon": ""
     },
@@ -224,7 +224,7 @@
         "type": 0
       }
     },
-   {
+    {
       "type": "disk",
       "keyIcon": "",
       "showRegular": true,
@@ -243,11 +243,11 @@
         "type": 0
       }
     },
-   {
+    {
       "type": "poweradapter",
       "keyIcon": "󰚥"
     },
-   "break",
+    "break",
     {
       "type": "colors",
       "key": " ",
