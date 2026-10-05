@@ -22,7 +22,16 @@
   "enabledPlugins": {
     "mattpocock-skills@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "typesafe@typesafe-ai": true
+  },
+  "extraKnownMarketplaces": {
+    "typesafe-ai": {
+      "source": {
+        "source": "github",
+        "repo": "typesafe-ai/skills"
+      }
+    }
   },
   "modelSettings": {
     "claude-opus-5-5": {
@@ -31,8 +40,8 @@
   },
   "theme": "dark",
   "editorMode": "vim",
+  "autoScrollEnabled": false,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
-  "autoScrollEnabled": false
+  "agentPushNotifEnabled": true
 }
