@@ -20,16 +20,22 @@
     "hideVimModeIndicator": true
   },
   "enabledPlugins": {
-    "mattpocock-skills@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "typesafe@typesafe-ai": true
+    "typesafe@typesafe-ai": true,
+    "mattpocock-skills@mattpocock": true
   },
   "extraKnownMarketplaces": {
     "typesafe-ai": {
       "source": {
         "source": "github",
         "repo": "typesafe-ai/skills"
+      }
+    },
+    "mattpocock": {
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
       }
     }
   },
@@ -43,5 +49,34 @@
   "autoScrollEnabled": false,
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Not queryable here (no git remotes in this repo — /home/john has no tracked files and no remotes configured); assume private unless shown otherwise",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: Not queryable here (no remotes, default branch unknown)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine or CI runner with open internet",
+      "**Source control**: The trusted repo and its remote(s) only (no additional orgs configured) — but this repo (/home/john) has no remotes configured",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured — bucket scan did not complete cleanly, treat as unavailable, not absent",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar — noted candidates: .claude/.credentials.json, .local/share/vitest/.vitest-secret-token, .cache/fish/generated_completions/secret-tool.fish, Projects/all-in/.envrc, Projects/us-county-health-analysis/.env",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development",
+      "**Trusted repo**: The git repository the agent started in (/home/john) — note this directory has no tracked files and no git remote configured, so there is no actual trusted repo context established here",
+      "**Org-specific CLIs**: None configured — herdr CLI seen in recent usage (3×) and as a k8s namespace, but not corroborated as org-specific",
+      "routine under jpierre-7/ prefix: sibling repos on GitHub under this username (dotfiles, Wallpapers, jp-website, all-in, ITDS-2373, rust [no remote], eagle-ring, dsa, us-county-health-analysis) were found under the home directory but are candidates only — not adopted into trust since scope is just this project and this project has no matching org/remote"
+    ]
+  }
 }
