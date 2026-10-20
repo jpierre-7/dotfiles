@@ -1,0 +1,8 @@
+// Outputs for the desktop: one 5120x1440 ultrawide.
+// bootstrap.sh links ../host.kdl here when the hostname is "desktop".
+output "DP-1" {
+    mode "5120x1440@119.988"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}

@@ -69,6 +69,11 @@ mkdir -p "$HOME/.local/share/jupyter/runtime"
 
 log "Stowing configs into $HOME"
 cd "$DOTFILES"
+# Stow links a whole directory when it doesn't exist yet. ~/.claude must be a
+# real directory, or Claude Code would write credentials and history into this
+# repo; skills/ too, so skill installers and claude.ai sync write beside the
+# per-skill links instead of into the repo.
+mkdir -p "$HOME/.claude/skills"
 # Only directories holding dotfiles are stow packages
 STOW_PACKAGES=()
 for dir in */; do
@@ -87,6 +92,21 @@ if ! stow -t "$HOME" -R "${STOW_PACKAGES[@]}"; then
   echo "    git -C \"$DOTFILES\" checkout -- ."
 fi
 echo "All packages stowed successfully!"
+
+# niri includes host.kdl for per-machine outputs; without a hosts/ file for this
+# machine, niri auto-configures them
+HOST="$(uname -n)"
+if [ -f "$HOME/.config/niri/hosts/$HOST.kdl" ]; then
+  ln -sfn "hosts/$HOST.kdl" "$HOME/.config/niri/host.kdl"
+else
+  echo "No niri/.config/niri/hosts/$HOST.kdl; outputs will use niri's defaults"
+fi
+
+# Noctalia's default wallpaper lives here
+if [ ! -d "$HOME/Pictures/Wallpapers" ]; then
+  log "Cloning wallpapers"
+  git clone --depth 1 https://github.com/jpierre-7/Wallpapers.git "$HOME/Pictures/Wallpapers"
+fi
 
 # Both install into ~/.local/bin and update themselves, so they live outside
 # pacman. Runs after stowing so the herdr integration finds Claude's settings.

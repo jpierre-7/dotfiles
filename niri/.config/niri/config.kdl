@@ -68,22 +68,14 @@ input {
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
 }
-// You can configure outputs by their name, which you can find
-// by running `niri msg outputs` while inside a niri instance.
-// The built-in laptop monitor is usually called "eDP-1".
-// Find more information on the wiki:
+// Outputs differ per machine, so they live in hosts/<hostname>.kdl, included
+// through host.kdl at the end of this file. Find output names with
+// `niri msg outputs`. Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
-output "DP-1" {
-    mode "5120x1440@119.988"
-    scale 1
-    transform "normal"
-    position x=0 y=0
-}
 
 layout {
     focus-ring {
@@ -399,3 +391,7 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 }
+
+// Per-machine settings (outputs). bootstrap.sh links host.kdl to
+// hosts/<hostname>.kdl; without one, niri auto-configures outputs.
+include optional=true "host.kdl"

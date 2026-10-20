@@ -33,6 +33,8 @@
       "skillPath": "skills/redesign-skill",
       "commit": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37"
     },
+    "herdr": { "source": "herdr --skill", "note": "printed by the installed herdr binary; refresh with: herdr --skill > herdr/SKILL.md" },
+    "anti-ai-slop-writing": { "source": "unknown", "note": "upstream not recorded when it was added (e92af6e)" },
     "caveman": { "source": "local", "note": "caveman family + cavecrew; no upstream repo, refresh by re-copying from ~/.agents/skills" },
     "caveman-commit": { "source": "local", "note": "see caveman" },
     "caveman-compress": { "source": "local", "note": "see caveman" },
