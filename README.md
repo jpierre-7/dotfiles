@@ -84,35 +84,49 @@ cd ~/dotfiles
 bash bootstrap.sh
 ```
 
-The script will:
+The script asks for your sudo password once and then runs unattended until the
+final reboot prompt. It will:
 - Update the system (`pacman -Syu`)
 - Install [yay](https://github.com/Jguer/yay) (AUR helper) if not already present
-- Install all packages from the official repos, the AUR, and cargo
+- Install the packages listed in `packages/pacman.txt` and `packages/aur.txt`, plus cargo packages
 - Stow all config directories into your home folder
+- Install Claude Code and [herdr](https://herdr.dev) into `~/.local/bin`, plus herdr's Claude integration hook
 - Write `/etc/keyd/default.conf` to remap Caps Lock to Escape
-- Enable the `keyd` and `tailscaled` services
+- Enable the `keyd` and `tailscaled` services, and `cosmic-greeter` if no display manager is set up
 - Set fish as your login shell
 - Print any remaining manual steps, then prompt you to reboot
 
 The script is safe to re-run: packages are installed with `--needed` and configs
 are re-stowed in place.
 
+### Keeping the package lists current
+
+Anything installed by hand is lost on the next reinstall unless it lands in
+`packages/`. Run `./drift.sh` now and then: it lists packages installed here but
+missing from the lists, and listed packages that aren't installed.
+`packages/base.txt` holds what archinstall installs; bootstrap ignores it and
+drift.sh uses it only to keep those packages out of the report.
+
 ## Structure
 
 ```
 dotfiles/
-├── claude/        # Claude Code agent skills
+├── claude/        # Claude Code settings, statusline, and vendored skills
 ├── fastfetch/     # fastfetch config
 ├── fish/          # Fish shell config & abbreviations
+├── herdr/         # herdr terminal multiplexer config
 ├── lsd/           # lsd colors & icons
 ├── niri/          # Niri compositor config (keybinds, window rules, animations)
 ├── noctalia/      # Noctalia shell theme & settings
+├── nvim/          # LazyVim config, Molten + Quarto notebook setup
 ├── starship/      # Starship prompt
 ├── vicinae/       # Vicinae launcher settings
-└── wezterm/       # WezTerm config, keybinds, and custom color theme
+├── wezterm/       # WezTerm config, keybinds, and custom color theme
+├── docs/          # Agent docs for this repo (not stowed)
+└── packages/      # Package lists read by bootstrap.sh and drift.sh (not stowed)
 ```
 
-Each directory is a Stow package. Running `stow */` from the repo root symlinks everything into `$HOME`.
+Every other top-level directory is a Stow package; `bootstrap.sh` stows them all into `$HOME`.
 
 ## Notes
 

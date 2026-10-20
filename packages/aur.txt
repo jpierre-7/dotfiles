@@ -1,0 +1,7 @@
+# AUR packages installed by bootstrap.sh via yay.
+
+vesktop vicinae-bin
+maplemono-ttf maplemono-nf-unhinted maplemono-nf-cn-unhinted
+# Renders .qmd notebooks to PDF via its bundled typst
+quarto-cli-bin
+visual-studio-code-bin slack-desktop onlyoffice-bin anydesk-bin
