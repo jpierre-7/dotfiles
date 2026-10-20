@@ -6,6 +6,8 @@ end
 
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.cargo/bin
+# Arch's rustup keeps the rust-analyzer proxy off PATH by default
+fish_add_path -g /usr/lib/rustup/bin
 
 # Interactive shell - Shell behavior and user interface
 if status is-interactive
