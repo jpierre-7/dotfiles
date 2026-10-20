@@ -9,3 +9,6 @@ herdr/.config/herdr/*.sock
 herdr/.config/herdr/session.json
 herdr/.config/herdr/.plugins.lock
 herdr/.config/herdr/release-notes.json
+
+# Skills claude.ai syncs down at runtime; Claude Code manages these itself
+claude/.claude/skills/synced/
