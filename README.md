@@ -132,27 +132,34 @@ Every other top-level directory is a Stow package; `bootstrap.sh` stows them all
 
 - Caps Lock is remapped to Escape at the kernel level with [keyd](https://github.com/rvaiya/keyd),
   configured by `bootstrap.sh`. The equivalent `xkb` option is left commented out in the Niri config.
-- The Starship prompt uses the Catppuccin Frappé palette.
-- The Noctalia color scheme is set to Gruvbox.
-- WezTerm uses the Catppuccin Frappé color scheme with a custom `dank-theme` available as an alternative.
+- Everything uses Gruvbox: the Starship `gruvbox_gradient` palette, Noctalia's
+  built-in Gruvbox scheme, and WezTerm's `Gruvbox Dark (Gogh)`, with a custom
+  `dank-theme` available as an alternative.
+- Niri outputs (monitor modes, scale, position) are per machine and live in
+  `niri/.config/niri/hosts/<hostname>.kdl`. `bootstrap.sh` links `host.kdl` to the
+  file matching `uname -n`; a machine without one gets niri's automatic output setup.
 - Fish runs `onefetch` automatically when entering a git repo, and `fastfetch` on shell start.
-- Claude Code skills in `claude/.claude/skills/` are vendored: each skill's `SKILL.md`
-  is committed here rather than symlinked into a skill manager's store. Skill
-  installers write *relative* symlinks (`../../.agents/skills/...`) that assume
-  `~/.claude/skills` is a real directory; because Stow makes it a symlink into this
-  repo, those links resolve against the repo instead of `$HOME` and dangle. Vendoring
-  also means a freshly cloned device gets the skills with no extra install step.
-  `skills-lock.json` records each skill's upstream repo, path, and pinned commit so a
-  skill can be refreshed by re-copying from source.
+- Claude Code skills in `claude/.claude/skills/` are vendored: each skill's files
+  are committed here, so a freshly cloned device gets them with no install step.
+  `~/.claude` and `~/.claude/skills` are real directories (`bootstrap.sh` creates
+  them before stowing) and Stow links each skill into them individually. If Stow
+  linked the whole directory instead, Claude Code would write its credentials and
+  history into this repo. `skills-lock.json` records where each skill came from so
+  it can be refreshed by re-copying from source. Matt Pocock's skills come from the
+  `mattpocock-skills` plugin instead (see `enabledPlugins` in `settings.json`).
 
 ## ⚠️ Noctalia v5 Configuration Architecture
 
 With the update to Noctalia v5, this configuration now utilizes a dual-layered architecture, splitting the setup into a static foundation and a dynamic local state:
 
-*   **The Declarative Foundation (`~dotfiles/noctalia/.config/noctalia/`):** 
-    This repository strictly manages the base, non-negotiable foundations of the desktop shell. This includes core keybinds, window rules, and custom terminal integrations (like the Gruvbox Starship prompt). These `.toml` files are version-controlled and symlinked globally via GNU Stow.
-*   **The Local State Overrides (`~/.local/state/noctalia/settings.toml`):** 
-    Any minor layout tweaks, scaling adjustments, or visual changes made via the Noctalia GUI are saved to this state file. This file acts as an ephemeral, device-specific cache and is intentionally excluded from version control to prevent display conflicts across different hardware setups.
+*   **The Declarative Foundation (`noctalia/.config/noctalia/noctalia-config.toml`):**
+    The settings every machine shares: bar layout, theme, plugins, fonts, and the
+    default wallpaper (from [jpierre-7/Wallpapers](https://github.com/jpierre-7/Wallpapers),
+    cloned to `~/Pictures/Wallpapers` by `bootstrap.sh`). Version-controlled and stowed.
+*   **The Local State Overrides (`~/.local/state/noctalia/settings.toml`):**
+    Changes made in the Noctalia GUI land here. Anything tied to a monitor name
+    (lockscreen widget positions, per-monitor wallpapers) belongs here, not in the
+    repo, because output names differ between machines. Not version-controlled.
 
 The same reasoning applies to `fish/.config/fish/fish_variables`: fish rewrites it at runtime and it stores absolute, machine-specific paths, so it is listed in `.gitignore`. Anything that belongs on every device (such as `$PATH` entries) goes in `config.fish` instead.
 

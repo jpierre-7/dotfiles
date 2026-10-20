@@ -12,3 +12,6 @@ herdr/.config/herdr/release-notes.json
 
 # Skills claude.ai syncs down at runtime; Claude Code manages these itself
 claude/.claude/skills/synced/
+
+# Per-machine link to niri/.config/niri/hosts/<hostname>.kdl, made by bootstrap.sh
+niri/.config/niri/host.kdl
