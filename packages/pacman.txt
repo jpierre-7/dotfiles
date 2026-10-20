@@ -11,6 +11,6 @@ neovim ripgrep fd unzip wl-clipboard nodejs npm rustup
 # Molten (jupyter in neovim): python for the plugin venv, imagemagick for image.nvim
 python imagemagick
 # System
-git base-devel stow keyd tailscale github-cli
+git base-devel stow keyd tailscale github-cli jq
 # Apps and fonts
 vivaldi signal-desktop zed remmina freerdp noto-fonts noto-fonts-emoji
