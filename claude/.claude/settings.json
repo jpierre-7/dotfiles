@@ -1,5 +1,10 @@
 {
   "model": "opus",
+  "permissions": {
+    "allow": [
+      "mcp__claude-in-chrome"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
