@@ -122,7 +122,6 @@ dotfiles/
 ├── starship/      # Starship prompt
 ├── vicinae/       # Vicinae launcher settings
 ├── wezterm/       # WezTerm config, keybinds, and custom color theme
-├── docs/          # Agent docs for this repo (not stowed)
 └── packages/      # Package lists read by bootstrap.sh and drift.sh (not stowed)
 ```
 

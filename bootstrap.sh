@@ -77,7 +77,7 @@ mkdir -p "$HOME/.claude/skills"
 # Only directories holding dotfiles are stow packages
 STOW_PACKAGES=()
 for dir in */; do
-  case "$dir" in docs/ | packages/) continue ;; esac
+  case "$dir" in packages/) continue ;; esac
   STOW_PACKAGES+=("$dir")
 done
 if ! stow -t "$HOME" -R "${STOW_PACKAGES[@]}"; then
