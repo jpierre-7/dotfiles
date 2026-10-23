@@ -10,6 +10,9 @@ human-facing guide; this file covers what an agent needs to avoid breaking thing
   Paths inside mirror `$HOME`: `fish/.config/fish/config.fish` →
   `~/.config/fish/config.fish`. A new tool's config goes in a new top-level
   directory with the same shape; `bootstrap.sh` picks it up automatically.
+- `.claude/settings.json` at the root is Claude Code's project config for this
+  repo, not a Stow package (bootstrap's `*/` loop skips dotdirs). It turns the
+  `mattpocock-skills` plugin off here while it stays on globally.
 - The files in `~` are symlinks into this repo. Editing either side edits the
   same file, and so does any program that rewrites its own config (Claude Code,
   herdr, Noctalia). Check `git status` for changes you didn't make before committing.
