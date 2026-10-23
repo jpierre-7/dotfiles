@@ -47,7 +47,11 @@ human-facing guide; this file covers what an agent needs to avoid breaking thing
   Claude Code and gitignored.
 - **This repo is public.** Don't commit secrets, tokens, hostnames/IPs of private
   machines, or details of private work projects. `claude/.claude/settings.json`
-  is the usual risk because tools write into it.
+  is the usual risk because tools write into it. Keep `autoMode` out of it:
+  Claude Code reads that key only from user or managed settings or `--settings`,
+  so per-project auto mode context goes in a file outside this repo that you
+  pass with `--settings`. `/auto-mode-setup` is turned off (`skillOverrides`)
+  because it writes its draft into this file.
 - Theme is Gruvbox everywhere (Starship, Noctalia, WezTerm). Keep new configs consistent.
 - Keep `README.md` in sync when you change bootstrap steps, the stack, or the structure.
 
