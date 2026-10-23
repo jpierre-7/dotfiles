@@ -55,38 +55,7 @@
   "remoteControlAtStartup": false,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "autoMode": {
-    "environment": [
-      "### Org-wide",
-      "**Organization**: None configured",
-      "**Primary use of Claude Code**: software development (NAAIC internship research/deliverables — see Trusted repo)",
-      "**Cloud provider(s)**: None configured",
-      "**Repository visibility**: private (jpierre-7/naaic, confirmed via gh)",
-      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
-      "**Secrets management**: None configured",
-      "**Default / protected branches**: default branch unknown (origin/HEAD unset); no protected branches listed; rulesets not queryable here — treat as possibly unprotected",
-      "**CI/CD deploy targets**: None configured",
-      "**Network posture**: None configured",
-      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
-      "**Source control**: jpierre-7/naaic (private) and its origin remote only — no additional orgs configured",
-      "**Trusted internal domains**: None configured",
-      "**Trusted cloud buckets**: None configured",
-      "**Key internal services**: None configured",
-      "**Internal package registry**: None configured",
-      "**Sensitive data locations & audiences**: data/ folder (gitignored) holding the real training/engagement tracker — personal data (names, emails, institutions) of ~3,600 faculty/teachers; share only with NAAIC staff, never commit real data to git, never upload to third-party services (e.g. CRM trials) without John's explicit confirmation",
-      "**Data retention / declassification**: None configured",
-      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
-      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
-      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
-      "### User-specific",
-      "**Primary use of Claude Code**: software development — NAAIC research-intern deliverables (funding-research-bot, training-crm) under ~/naaic/",
-      "**Trusted repo**: jpierre-7/naaic (private, github.com:jpierre-7/naaic.git), working in the funding-research-bot worktree",
-      "**Org-specific CLIs**: None configured",
-      "Routine actions under ~/naaic/ (this project's working tree and its data/ subfolder) are the expected scope for this session"
-    ],
-    "soft_deny": [
-      "$defaults",
-      "Bash(curl:*api.grants.gov*) uploads or posts of local tracker/data/ files — treat as PII Data Handling / Public Data-Sharing Upload risk pending confirmation"
-    ]
+  "skillOverrides": {
+    "auto-mode-setup": "off"
   }
 }
