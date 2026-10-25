@@ -15,3 +15,8 @@ claude/.claude/skills/synced/
 
 # Per-machine link to niri/.config/niri/hosts/<hostname>.kdl, made by bootstrap.sh
 niri/.config/niri/host.kdl
+
+# Syncthing
+.stfolder/
+.stversions/
+*.sync-conflict-*
